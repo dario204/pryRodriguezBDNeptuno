@@ -16,14 +16,26 @@ namespace pryRodriguezBDNeptuno
         {
             InitializeComponent();
         }
-
+        int Intentos=0;
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
 
             if (txtUsuario.Text == "perro" && txtContraseña.Text == "gato")
             {
-                btnSiguiente.Enabled = true;
-                btnSiguiente
+                this.Hide();
+                frmMain f = new frmMain();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                Intentos++;
+                MessageBox.Show("Datos incorrectos, intente nuevamente", "",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Intentos==3)
+                {
+                    this.Close();
+                    MessageBox.Show("Limite de intentos alcanzado", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
