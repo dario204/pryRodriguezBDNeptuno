@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.lblBaseDatos = new System.Windows.Forms.Label();
-            this.btnMostrar = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
-            this.btnLeer = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Compañia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +40,18 @@
             this.Pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblBaseDatos = new System.Windows.Forms.Label();
+            this.btnMostrar = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
+            this.btnLeer = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.mrcFiltro = new System.Windows.Forms.GroupBox();
+            this.lblCiudad = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblPais = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.mrcFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvClientes
@@ -63,26 +69,107 @@
             this.Pais,
             this.Telefono,
             this.Fax});
-            this.dgvClientes.Location = new System.Drawing.Point(12, 221);
+            this.dgvClientes.Location = new System.Drawing.Point(20, 280);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(523, 248);
+            this.dgvClientes.RowHeadersWidth = 51;
+            this.dgvClientes.Size = new System.Drawing.Size(697, 305);
             this.dgvClientes.TabIndex = 0;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Id Cliente";
+            this.Cliente.MinimumWidth = 6;
+            this.Cliente.Name = "Cliente";
+            this.Cliente.Width = 125;
+            // 
+            // Compañia
+            // 
+            this.Compañia.HeaderText = "Nombre Compañia";
+            this.Compañia.MinimumWidth = 6;
+            this.Compañia.Name = "Compañia";
+            this.Compañia.Width = 125;
+            // 
+            // Contacto
+            // 
+            this.Contacto.HeaderText = "Nombre del contacto";
+            this.Contacto.MinimumWidth = 6;
+            this.Contacto.Name = "Contacto";
+            this.Contacto.Width = 125;
+            // 
+            // Cargo
+            // 
+            this.Cargo.HeaderText = "Cargo del contacto";
+            this.Cargo.MinimumWidth = 6;
+            this.Cargo.Name = "Cargo";
+            this.Cargo.Width = 125;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.MinimumWidth = 6;
+            this.Direccion.Name = "Direccion";
+            this.Direccion.Width = 125;
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.MinimumWidth = 6;
+            this.Ciudad.Name = "Ciudad";
+            this.Ciudad.Width = 125;
+            // 
+            // Region
+            // 
+            this.Region.HeaderText = "Region";
+            this.Region.MinimumWidth = 6;
+            this.Region.Name = "Region";
+            this.Region.Width = 125;
+            // 
+            // CodigoPostal
+            // 
+            this.CodigoPostal.HeaderText = "Codigo Pòstal";
+            this.CodigoPostal.MinimumWidth = 6;
+            this.CodigoPostal.Name = "CodigoPostal";
+            this.CodigoPostal.Width = 125;
+            // 
+            // Pais
+            // 
+            this.Pais.HeaderText = "Pais";
+            this.Pais.MinimumWidth = 6;
+            this.Pais.Name = "Pais";
+            this.Pais.Width = 125;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 6;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Width = 125;
+            // 
+            // Fax
+            // 
+            this.Fax.HeaderText = "Fax";
+            this.Fax.MinimumWidth = 6;
+            this.Fax.Name = "Fax";
+            this.Fax.Width = 125;
             // 
             // lblBaseDatos
             // 
             this.lblBaseDatos.AutoSize = true;
-            this.lblBaseDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBaseDatos.Location = new System.Drawing.Point(239, 9);
+            this.lblBaseDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBaseDatos.Location = new System.Drawing.Point(319, 11);
+            this.lblBaseDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBaseDatos.Name = "lblBaseDatos";
-            this.lblBaseDatos.Size = new System.Drawing.Size(106, 18);
+            this.lblBaseDatos.Size = new System.Drawing.Size(240, 39);
             this.lblBaseDatos.TabIndex = 1;
             this.lblBaseDatos.Text = "Base de Datos";
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(12, 93);
+            this.btnMostrar.Location = new System.Drawing.Point(20, 130);
+            this.btnMostrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(101, 34);
+            this.btnMostrar.Size = new System.Drawing.Size(135, 42);
             this.btnMostrar.TabIndex = 2;
             this.btnMostrar.Text = "Mostrar";
             this.btnMostrar.UseVisualStyleBackColor = true;
@@ -91,16 +178,18 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(9, 406);
+            this.lblError.Location = new System.Drawing.Point(12, 500);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.Size = new System.Drawing.Size(0, 16);
             this.lblError.TabIndex = 3;
             // 
             // btnLeer
             // 
-            this.btnLeer.Location = new System.Drawing.Point(12, 40);
+            this.btnLeer.Location = new System.Drawing.Point(20, 70);
+            this.btnLeer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLeer.Name = "btnLeer";
-            this.btnLeer.Size = new System.Drawing.Size(101, 35);
+            this.btnLeer.Size = new System.Drawing.Size(135, 43);
             this.btnLeer.TabIndex = 4;
             this.btnLeer.Text = "Leer";
             this.btnLeer.UseVisualStyleBackColor = true;
@@ -108,84 +197,83 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(555, 490);
+            this.btnSalir.Location = new System.Drawing.Point(740, 603);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(100, 28);
             this.btnSalir.TabIndex = 5;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Cliente
+            // mrcFiltro
             // 
-            this.Cliente.HeaderText = "Id Cliente";
-            this.Cliente.Name = "Cliente";
+            this.mrcFiltro.Controls.Add(this.comboBox2);
+            this.mrcFiltro.Controls.Add(this.lblPais);
+            this.mrcFiltro.Controls.Add(this.comboBox1);
+            this.mrcFiltro.Controls.Add(this.lblCiudad);
+            this.mrcFiltro.Location = new System.Drawing.Point(20, 179);
+            this.mrcFiltro.Name = "mrcFiltro";
+            this.mrcFiltro.Size = new System.Drawing.Size(697, 94);
+            this.mrcFiltro.TabIndex = 6;
+            this.mrcFiltro.TabStop = false;
+            this.mrcFiltro.Text = "Filtrar por";
             // 
-            // Compañia
+            // lblCiudad
             // 
-            this.Compañia.HeaderText = "Nombre Compañia";
-            this.Compañia.Name = "Compañia";
+            this.lblCiudad.AutoSize = true;
+            this.lblCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCiudad.Location = new System.Drawing.Point(7, 44);
+            this.lblCiudad.Name = "lblCiudad";
+            this.lblCiudad.Size = new System.Drawing.Size(75, 25);
+            this.lblCiudad.TabIndex = 0;
+            this.lblCiudad.Text = "Ciudad";
             // 
-            // Contacto
+            // comboBox1
             // 
-            this.Contacto.HeaderText = "Nombre del contacto";
-            this.Contacto.Name = "Contacto";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(116, 42);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(168, 24);
+            this.comboBox1.TabIndex = 1;
             // 
-            // Cargo
+            // lblPais
             // 
-            this.Cargo.HeaderText = "Cargo del contacto";
-            this.Cargo.Name = "Cargo";
+            this.lblPais.AutoSize = true;
+            this.lblPais.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPais.Location = new System.Drawing.Point(340, 40);
+            this.lblPais.Name = "lblPais";
+            this.lblPais.Size = new System.Drawing.Size(50, 25);
+            this.lblPais.TabIndex = 2;
+            this.lblPais.Text = "Pais";
             // 
-            // Direccion
+            // comboBox2
             // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            // 
-            // Region
-            // 
-            this.Region.HeaderText = "Region";
-            this.Region.Name = "Region";
-            // 
-            // CodigoPostal
-            // 
-            this.CodigoPostal.HeaderText = "Codigo Pòstal";
-            this.CodigoPostal.Name = "CodigoPostal";
-            // 
-            // Pais
-            // 
-            this.Pais.HeaderText = "Pais";
-            this.Pais.Name = "Pais";
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            // 
-            // Fax
-            // 
-            this.Fax.HeaderText = "Fax";
-            this.Fax.Name = "Fax";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(414, 40);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(168, 24);
+            this.comboBox2.TabIndex = 3;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 525);
+            this.ClientSize = new System.Drawing.Size(881, 646);
+            this.Controls.Add(this.mrcFiltro);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnLeer);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.lblBaseDatos);
             this.Controls.Add(this.dgvClientes);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.mrcFiltro.ResumeLayout(false);
+            this.mrcFiltro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +298,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Pais;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fax;
+        private System.Windows.Forms.GroupBox mrcFiltro;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label lblPais;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblCiudad;
     }
 }
