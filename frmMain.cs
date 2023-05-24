@@ -15,14 +15,18 @@ namespace pryRodriguezBDNeptuno
         OleDbCommand ComandoBD;
         OleDbConnection ConexionBD;
         OleDbDataReader LectorBD;
+        
+
         public frmMain()
         {
             InitializeComponent();
         }
+        clsVerTablas objBaseDatos = new clsVerTablas();
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+          
+            //objBaseDatos.CargarBaseDeDatos();
         }
 
         private void btnMostrar_Click(object sender, EventArgs e)
@@ -77,6 +81,28 @@ namespace pryRodriguezBDNeptuno
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBase_Click(object sender, EventArgs e)
+        {
+            string rutaArchivo;
+            //filedialog puede filtrar por extensiones de archivo
+            openFileDialog1.ShowDialog();
+
+            rutaArchivo = openFileDialog1.FileName;
+
+            //usando la propiedad rutadebasededatos del objeto
+            objBaseDatos.RutaDeBaseDatos = openFileDialog1.FileName;
+            objBaseDatos.ConectarBaseDeDatos();
+
+            //btnElegirBase.Text = rutaArchivo;
+            //usando el mètodo con parametros
+            objBaseDatos.ConectarBaseDeDatos(rutaArchivo);
+        }
+
+        private void btnVerTablas_Click(object sender, EventArgs e)
+        {
+            objBaseDatos.ListarTablasDeLaBaseDeDatos();
         }
     }
 }

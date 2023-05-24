@@ -5,7 +5,6 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.OleDb;
 using System.Windows.Forms;
 
 
@@ -14,10 +13,12 @@ namespace pryRodriguezBDNeptuno
     internal class clsManejoBD
 
     {
-        OleDbCommand ComandoBD;
+        OleDbCommand ConexionBD;
         OleDbConnection ConectorBD;
         OleDbDataReader LectorBD;
-        public void CargarGrilla(DataGridView grilla, ComboBox pais, ComboBox ciudad)
+        string ProveedorAccess = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source =";
+        public string RutaDeBaseDatos = "-";
+        public void CargarBaseDeDatos(DataGridView grilla, ComboBox pais, ComboBox ciudad)
         {
             try
             {
@@ -25,14 +26,14 @@ namespace pryRodriguezBDNeptuno
                 ConectorBD.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NEPTUNO.accdb";
                 ConectorBD.Open();
 
-                ComandoBD = new OleDbCommand();
+               ConexionBD = new OleDbCommand();
 
-                ComandoBD.Connection = ConectorBD;
-                ComandoBD.CommandType = System.Data.CommandType.TableDirect;
-                ComandoBD.CommandText = "Clientes";
+               ConexionBD.Connection = ConectorBD;
+               ConexionBD.CommandType = System.Data.CommandType.TableDirect;
+               ConexionBD.CommandText = "Clientes";
 
 
-                LectorBD = ComandoBD.ExecuteReader();
+                LectorBD =ConexionBD.ExecuteReader();
 
                 while (LectorBD.Read())
                 {
@@ -73,7 +74,7 @@ namespace pryRodriguezBDNeptuno
 
         }
 
-        public DataGridView CargarGrilla()
+        public DataGridView CargarBaseDeDatos(string rutaArechivo)
         {
             try
             {
@@ -89,14 +90,14 @@ namespace pryRodriguezBDNeptuno
                 ConectorBD.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NEPTUNO.accdb";
                 ConectorBD.Open();
 
-                ComandoBD = new OleDbCommand();
+               ConexionBD = new OleDbCommand();
 
-                ComandoBD.Connection = ConectorBD;
-                ComandoBD.CommandType = System.Data.CommandType.TableDirect;
-                ComandoBD.CommandText = "Clientes";
+               ConexionBD.Connection = ConectorBD;
+               ConexionBD.CommandType = System.Data.CommandType.TableDirect;
+               ConexionBD.CommandText = "Clientes";
 
 
-                LectorBD = ComandoBD.ExecuteReader();
+                LectorBD =ConexionBD.ExecuteReader();
 
                 while (LectorBD.Read())
                 {
@@ -109,11 +110,69 @@ namespace pryRodriguezBDNeptuno
             {
                 return null;
             }
+           
         }
+        public void ConectarBaseDeDatos()
+        {
+            try
+            {
+                //crea el objeto en memoria (instanciar)
+                ConexionBD = new OleDbConnection();
+
+                //debo ingresar la cadena de conexiòn
+                //proveedor de la base --> connectionsstrings.com
+                //ruta
+                //nombre de archivo
+                //ConexionBD.ConnectionString = ProveedorAccess + "LocalEnBin.accdb";
+                ConexionBD.ConnectionString = ProveedorAccess + RutaDeBaseDatos;
+                ConexionBD.Open();
+
+                MessageBox.Show("base de Datos abierta - con propiedades de la clase");
+            }
+            catch (Exception falla)
+            {
+                MessageBox.Show("Error: " + falla.Message);
+            }
+
+        }
+
+        public void ConectarBaseDeDatos(string rutaArchivo)
+        {
+            try
+            {
+                //crea el objeto en memoria (instanciar)
+                ConexionBD = new OleDbConnection();
+
+                //debo ingresar la cadena de conexiòn
+                //proveedor de la base --> connectionsstrings.com
+                //ruta
+                //nombre de archivo
+                ConexionBD.ConnectionString = ProveedorAccess + rutaArchivo;
+
+                ConexionBD.Open();
+
+                MessageBox.Show("base de Datos abierta - con parametros");
+            }
+            catch (Exception falla)
+            {
+                MessageBox.Show("Error: " + falla.Message);
+            }
+        }
+
+        public void ListarTablasDeLaBaseDeDatos()
+        {
+            DataTable tablas;
+            tablas = ConexionBD.GetSchema("Tables");
+
+            //https://social.msdn.microsoft.com/Forums/es-ES/8b06cfb9-ce9b-4ad4-a8d5-53f0f281f198/obtener-el-nombre-de-todas-las-tablas-existentes-en-una-base-de-datos-acces-en-c?forum=vcses
+
+        }
+
+
     }
 
 }
-}
+
 
 
 

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsManejoBD.cs" />
+    <Compile Include="clsVerTablas.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
