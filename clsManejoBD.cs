@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using System.Windows.Forms;
 
 
@@ -13,6 +14,8 @@ namespace pryRodriguezBDNeptuno
     internal class clsManejoBD
 
     {
+        //OBJETOS para manipular la conexiòn y datos de una BD
+        //zona de declaraciones de objetos y variables
         OleDbCommand ConexionBD;
         OleDbConnection ConectorBD;
         OleDbDataReader LectorBD;
@@ -43,7 +46,7 @@ namespace pryRodriguezBDNeptuno
                     if (pais.Items.Count > 0)
                     {
                         int indice = 0;
-                        //vamos a ver que no exista otro pais con el mismo nombre
+                        //verifica que no exista otro pais con el mismo nombre
                         while (indice < pais.Items.Count)
                         {
                             pais.SelectedIndex = indice;
@@ -58,7 +61,7 @@ namespace pryRodriguezBDNeptuno
                     }
                     else
                     {
-                        //si esta vacio el combobox vamos a grabar el primer paìs
+                        //si esta vacio el combobox graba el primer paìs
                         pais.Items.Add(LectorBD["País"]);
 
                     }
@@ -117,14 +120,14 @@ namespace pryRodriguezBDNeptuno
             try
             {
                 //crea el objeto en memoria (instanciar)
-                ConexionBD = new OleDbConnection();
+                ConexionBD = new OleDbCommand();
 
                 //debo ingresar la cadena de conexiòn
                 //proveedor de la base --> connectionsstrings.com
                 //ruta
                 //nombre de archivo
                 //ConexionBD.ConnectionString = ProveedorAccess + "LocalEnBin.accdb";
-                ConexionBD.ConnectionString = ProveedorAccess + RutaDeBaseDatos;
+                ConexionBD.ToString() = ProveedorAccess + RutaDeBaseDatos;
                 ConexionBD.Open();
 
                 MessageBox.Show("base de Datos abierta - con propiedades de la clase");
@@ -141,7 +144,7 @@ namespace pryRodriguezBDNeptuno
             try
             {
                 //crea el objeto en memoria (instanciar)
-                ConexionBD = new OleDbConnection();
+                ConexionBD = new OleDbCommand();
 
                 //debo ingresar la cadena de conexiòn
                 //proveedor de la base --> connectionsstrings.com
