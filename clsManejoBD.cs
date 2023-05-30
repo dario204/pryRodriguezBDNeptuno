@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
-using System.Diagnostics;
+using System.Data.OleDb;
+
 
 namespace pryRodriguezBDNeptuno
 {
@@ -16,72 +15,28 @@ namespace pryRodriguezBDNeptuno
     {
         //OBJETOS para manipular la conexiòn y datos de una BD
         //zona de declaraciones de objetos y variables
-        OleDbCommand ConexionBD;
-        OleDbConnection ConectorBD;
-        OleDbDataReader LectorBD;
+        OleDbConnection miConexion;
+        OleDbCommand miComando;
+        OleDbDataReader miLector;
+
         string ProveedorAccess = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source =";
         public string RutaDeBaseDatos = "-";
-        public void CargarBaseDeDatos()
-        {
-            try
-            {
-                //crea el objeto en memoria (instanciar)
-                ConectorBD = new OleDbConnection();
 
-                //debo ingresar la cadena de conexiòn
-                //proveedor de la base --> connectionsstrings.com
-                //ruta
-                //nombre de archivo
-                //ConectorBD.ConnectionString = ProveedorAccess + "LocalEnBin.accdb";
-                ConectorBD.ConnectionString = ProveedorAccess + RutaDeBaseDatos;
-                ConectorBD.Open();
 
-                MessageBox.Show("base de Datos abierta - con propiedades de la clase");
-            }
-            catch (Exception falla)
-            {
-                MessageBox.Show("Error: " + falla.Message);
-            }
-
-        }
-
-        public DataGridView CargarBaseDeDatos(string rutaArechivo)
-        {
-            try
-            {
-                //crea el objeto en memoria (instanciar)
-                ConectorBD = new OleDbConnection();
-
-                //debo ingresar la cadena de conexiòn
-                //proveedor de la base --> connectionsstrings.com
-                //ruta
-                //nombre de archivo
-                ConectorBD.ConnectionString = ProveedorAccess + rutaArchivo;
-
-                ConectorBD.Open();
-
-                MessageBox.Show("base de Datos abierta - con parametros");
-            }
-            catch (Exception falla)
-            {
-                MessageBox.Show("Error: " + falla.Message);
-            }
-
-        }
         public void ConectarBaseDeDatos()
         {
             try
             {
                 //crea el objeto en memoria (instanciar)
-                ConexionBD = new OleDbCommand();
+                miConexion = new OleDbConnection();
 
                 //debo ingresar la cadena de conexiòn
                 //proveedor de la base --> connectionsstrings.com
                 //ruta
                 //nombre de archivo
-                //ConexionBD.ConnectionString = ProveedorAccess + "LocalEnBin.accdb";
-                ConexionBD.ToString() = ProveedorAccess + RutaDeBaseDatos;
-                ConexionBD.Open();
+                //miConexion.ConnectionString = ProveedorAccess + "LocalEnBin.accdb";
+                miConexion.ConnectionString = ProveedorAccess + RutaDeBaseDatos;
+                miConexion.Open();
 
                 MessageBox.Show("base de Datos abierta - con propiedades de la clase");
             }
@@ -97,15 +52,15 @@ namespace pryRodriguezBDNeptuno
             try
             {
                 //crea el objeto en memoria (instanciar)
-                ConexionBD = new OleDbCommand();
+                miConexion = new OleDbConnection();
 
                 //debo ingresar la cadena de conexiòn
                 //proveedor de la base --> connectionsstrings.com
                 //ruta
                 //nombre de archivo
-                ConexionBD.ConnectionString = ProveedorAccess + rutaArchivo;
+                miConexion.ConnectionString = ProveedorAccess + rutaArchivo;
 
-                ConexionBD.Open();
+                miConexion.Open();
 
                 MessageBox.Show("base de Datos abierta - con parametros");
             }
@@ -118,48 +73,12 @@ namespace pryRodriguezBDNeptuno
         public void ListarTablasDeLaBaseDeDatos()
         {
             DataTable tablas;
-            tablas = ConexionBD.GetSchema("Tables");
+            tablas = miConexion.GetSchema("Tables");
 
             //https://social.msdn.microsoft.com/Forums/es-ES/8b06cfb9-ce9b-4ad4-a8d5-53f0f281f198/obtener-el-nombre-de-todas-las-tablas-existentes-en-una-base-de-datos-acces-en-c?forum=vcses
 
         }
-        public void FiltrarPais()
-        {
-            ConexionBD.Connection = ConectorBD;
-            ConexionBD.CommandType=System.Data.CommandType.TableDirect;
-            ConexionBD.CommandText = "clientes";
 
-            LectorBD = ConexionBD.ExecuteReader();
-            DataGridView grilla = new DataGridView();
-            DataGridView pais = new DataGridView();
-            DataGridView ciudad = new DataGridView();
-            while (LectorBD.Read())
-            {
-                string auxPais = LectorBD["Pais"].ToString();
-                grilla.Rows.Add(LectorBD[0], LectorBD[1], LectorBD[2], LectorBD[3], LectorBD[4], LectorBD[5], LectorBD[6], LectorBD[7], LectorBD[8], LectorBD[9]);
-                if (pais.Items.Count>0)
-                {
-                    int indice = 0;
-                    //vamos a ver que no exista otro pais con el mismo nombre
-                    while (indice< pais.Items.Count)
-                    {
-                        pais.SelectedIndex = indice;
-
-                        if (LectorBD["Pais"].ToString()== pais.SelectedItem.ToString())
-                        {
-
-                        }
-                    }
-                    
-                }
-                else
-                {
-
-                }
-            }
-
-
-        }
 
     }
 

@@ -52,7 +52,7 @@ namespace pryRodriguezBDNeptuno
             }
             catch (Exception)
             {
-                MessageBox.Show("Hubo un error");
+                
                 
             }
             
@@ -85,24 +85,75 @@ namespace pryRodriguezBDNeptuno
 
         private void btnBase_Click(object sender, EventArgs e)
         {
-            string rutaArchivo;
-            //filedialog puede filtrar por extensiones de archivo
-            openFileDialog1.ShowDialog();
-
-            rutaArchivo = openFileDialog1.FileName;
-
-            //usando la propiedad rutadebasededatos del objeto
-            objBaseDatos.RutaDeBaseDatos = openFileDialog1.FileName;
-            objBaseDatos.ConectarBaseDeDatos();
-
-            //btnElegirBase.Text = rutaArchivo;
-            //usando el mètodo con parametros
-            objBaseDatos.ConectarBaseDeDatos(rutaArchivo);
+            
         }
 
         private void btnVerTablas_Click(object sender, EventArgs e)
         {
-            objBaseDatos.ListarTablasDeLaBaseDeDatos();
+            
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            string conexion= "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NEPTUNO.accdb;";
+            try
+            {
+                ConexionBD = new OleDbConnection(conexion);
+                ConexionBD.Open();
+                ComandoBD=new OleDbCommand();
+                ComandoBD.CommandType = CommandType.TableDirect;
+                ComandoBD.CommandText = "Clientes";
+                LectorBD = ComandoBD.ExecuteReader();
+                string FiltrarPais = cboPais.SelectedItem.ToString();
+                while (LectorBD.Read())
+                {
+                    if (FiltrarPais == LectorBD[8].ToString())
+                    {
+                        DataTable InfoFiltrada = new DataTable();
+                        InfoFiltrada.Rows.Add(LectorBD[0], LectorBD[1], LectorBD[2], LectorBD[3], LectorBD[4], LectorBD[5], LectorBD[6], LectorBD[7], LectorBD[8], LectorBD[9]);
+
+                    }
+                }
+                MessageBox.Show("Los datos fueron obtenidos", "", MessageBoxButtons.OK);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error" + ex.Message + MessageBoxButtons.OK + MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void cboPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string conexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NEPTUNO.accdb;";
+            try
+            {
+                ConexionBD = new OleDbConnection(conexion);
+                ConexionBD.Open();
+                ComandoBD = new OleDbCommand();
+                ComandoBD.Connection = ConexionBD;
+                ComandoBD.CommandType = CommandType.TableDirect;
+                ComandoBD.CommandText = "Clientes";
+                LectorBD = ComandoBD.ExecuteReader();
+
+                cboCiudad.Items.Clear();
+                HashSet<string> PaisNoRepetido = new HashSet<string>();
+                while (LectorBD.Read())
+                {
+                    if (LectorBD[8].ToString() == cboPais.Text)
+                    {
+                        string ciudad = LectorBD[5].ToString();
+                        PaisNoRepetido.Add(ciudad);
+                    }
+                }
+                cboCiudad.Items.AddRange(PaisNoRepetido.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
         }
     }
 }
