@@ -21,58 +21,26 @@ namespace pryRodriguezBDNeptuno
         OleDbDataReader LectorBD;
         string ProveedorAccess = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source =";
         public string RutaDeBaseDatos = "-";
-        public void CargarBaseDeDatos(DataGridView grilla, ComboBox pais, ComboBox ciudad)
+        public void CargarBaseDeDatos()
         {
             try
             {
+                //crea el objeto en memoria (instanciar)
                 ConectorBD = new OleDbConnection();
-                ConectorBD.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NEPTUNO.accdb";
+
+                //debo ingresar la cadena de conexiòn
+                //proveedor de la base --> connectionsstrings.com
+                //ruta
+                //nombre de archivo
+                //ConectorBD.ConnectionString = ProveedorAccess + "LocalEnBin.accdb";
+                ConectorBD.ConnectionString = ProveedorAccess + RutaDeBaseDatos;
                 ConectorBD.Open();
 
-               ConexionBD = new OleDbCommand();
-
-               ConexionBD.Connection = ConectorBD;
-               ConexionBD.CommandType = System.Data.CommandType.TableDirect;
-               ConexionBD.CommandText = "Clientes";
-
-
-                LectorBD =ConexionBD.ExecuteReader();
-
-                while (LectorBD.Read())
-                {
-                    string auxPais = LectorBD["País"].ToString();
-                    grilla.Rows.Add(LectorBD[0], LectorBD[1], LectorBD[2], LectorBD[3], LectorBD[4], LectorBD[5], LectorBD[6], LectorBD[7], LectorBD[8], LectorBD[9]);
-
-                    if (pais.Items.Count > 0)
-                    {
-                        int indice = 0;
-                        //verifica que no exista otro pais con el mismo nombre
-                        while (indice < pais.Items.Count)
-                        {
-                            pais.SelectedIndex = indice;
-                            if (LectorBD["País"].ToString() == pais.SelectedValue.ToString())
-                            {
-
-                            }
-                            pais.Items.Add(LectorBD["País"]);
-
-                        }
-
-                    }
-                    else
-                    {
-                        //si esta vacio el combobox graba el primer paìs
-                        pais.Items.Add(LectorBD["País"]);
-
-                    }
-                    ciudad.Items.Add(LectorBD["Ciudad"]);
-
-                }
-
+                MessageBox.Show("base de Datos abierta - con propiedades de la clase");
             }
-            catch (Exception)
+            catch (Exception falla)
             {
-
+                MessageBox.Show("Error: " + falla.Message);
             }
 
         }
@@ -81,39 +49,24 @@ namespace pryRodriguezBDNeptuno
         {
             try
             {
-                DataGridView grilla = new DataGridView();
-
-                for (int i = 0; i < 10; i++)
-                {
-
-                    grilla.Columns.Add(i.ToString(), i.ToString());
-                }
-
+                //crea el objeto en memoria (instanciar)
                 ConectorBD = new OleDbConnection();
-                ConectorBD.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=NEPTUNO.accdb";
+
+                //debo ingresar la cadena de conexiòn
+                //proveedor de la base --> connectionsstrings.com
+                //ruta
+                //nombre de archivo
+                ConectorBD.ConnectionString = ProveedorAccess + rutaArchivo;
+
                 ConectorBD.Open();
 
-               ConexionBD = new OleDbCommand();
-
-               ConexionBD.Connection = ConectorBD;
-               ConexionBD.CommandType = System.Data.CommandType.TableDirect;
-               ConexionBD.CommandText = "Clientes";
-
-
-                LectorBD =ConexionBD.ExecuteReader();
-
-                while (LectorBD.Read())
-                {
-                    grilla.Rows.Add(LectorBD[0], LectorBD[1], LectorBD[2], LectorBD[3], LectorBD[4], LectorBD[5], LectorBD[6], LectorBD[7], LectorBD[8], LectorBD[9]);
-
-                }
-                return grilla;
+                MessageBox.Show("base de Datos abierta - con parametros");
             }
-            catch (Exception)
+            catch (Exception falla)
             {
-                return null;
+                MessageBox.Show("Error: " + falla.Message);
             }
-           
+
         }
         public void ConectarBaseDeDatos()
         {
