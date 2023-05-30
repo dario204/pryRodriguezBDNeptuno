@@ -21,12 +21,12 @@ namespace pryRodriguezBDNeptuno
         {
             InitializeComponent();
         }
-        clsVerTablas objBaseDatos = new clsVerTablas();
+        clsManejoBD objBaseDatos = new clsManejoBD();
 
         private void frmMain_Load(object sender, EventArgs e)
         {
           
-            //objBaseDatos.CargarBaseDeDatos();
+           // objBaseDatos.CargarBaseDeDatos();
         }
 
         private void btnMostrar_Click(object sender, EventArgs e)
