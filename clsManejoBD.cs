@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 
 namespace pryRodriguezBDNeptuno
@@ -20,49 +21,42 @@ namespace pryRodriguezBDNeptuno
         OleDbDataReader miLector;
 
         string ProveedorAccess = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source =";
-        public string RutaDeBaseDatos = "-";
-
-
+   
         public void ConectarBaseDeDatos()
         {
             try
             {
-                //crea el objeto en memoria (instanciar)
-                miConexion = new OleDbConnection();
-
-                //debo ingresar la cadena de conexiòn
-                //proveedor de la base --> connectionsstrings.com
-                //ruta
-                //nombre de archivo
-                //miConexion.ConnectionString = ProveedorAccess + "LocalEnBin.accdb";
-                miConexion.ConnectionString = ProveedorAccess + RutaDeBaseDatos;
-                miConexion.Open();
-
-                MessageBox.Show("base de Datos abierta - con propiedades de la clase");
+               
+                    miConexion.ConnectionString = ProveedorAccess;
+                    miConexion.Open();
+                    MessageBox.Show("Base de Datos conectada");
             }
-            catch (Exception falla)
-            {
-                MessageBox.Show("Error: " + falla.Message);
-            }
+                catch (Exception error)
+            {     
+                    MessageBox.Show("Error: " + error.Message);
+                
 
+            }
         }
-
-        public void ConectarBaseDeDatos(string rutaArchivo)
+        public void CargarcboPais(ComboBox cboPais )
         {
             try
             {
-                //crea el objeto en memoria (instanciar)
-                miConexion = new OleDbConnection();
+                
 
-                //debo ingresar la cadena de conexiòn
-                //proveedor de la base --> connectionsstrings.com
-                //ruta
-                //nombre de archivo
-                miConexion.ConnectionString = ProveedorAccess + rutaArchivo;
+                miComando.Connection=miConexion;
 
-                miConexion.Open();
+                miComando.CommandType = System.Data.CommandType.TableDirect;
+                miComando.CommandText = "Proveedores";
+                miLector = miComando.ExecuteReader();
+                cboPais.Items.Clear();
+                while (miLector.Read())
+                {
+                    cboPais.Items.Add(miLector.GetString(8));
+                }
+                miLector.Close();
 
-                MessageBox.Show("base de Datos abierta - con parametros");
+                
             }
             catch (Exception falla)
             {
@@ -70,16 +64,24 @@ namespace pryRodriguezBDNeptuno
             }
         }
 
-        public void ListarTablasDeLaBaseDeDatos()
+        public void CargarcboCiudad(ComboBox cboCiudad, string Pais)
         {
-            DataTable tablas;
-            tablas = miConexion.GetSchema("Tables");
-
-            //https://social.msdn.microsoft.com/Forums/es-ES/8b06cfb9-ce9b-4ad4-a8d5-53f0f281f198/obtener-el-nombre-de-todas-las-tablas-existentes-en-una-base-de-datos-acces-en-c?forum=vcses
-
+            miComando.Connection = miConexion;
+            miComando.CommandType= System.Data.CommandType.TableDirect;
+            miComando.CommandText = "Proveedores";
+            miLector = miComando.ExecuteReader();
+            cboCiudad.Items.Clear();
+            while (miLector.Read())
+            {
+                if (miLector.GetString(8) == Pais)
+                {
+                    cboCiudad.Items.Add(miLector.GetString(5));
+                }
+            }
+            miLector.Close();
         }
-
-
+        
+        
     }
 
 }

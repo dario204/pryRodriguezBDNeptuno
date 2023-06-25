@@ -73,10 +73,11 @@
             this.Pais,
             this.Telefono,
             this.Fax});
-            this.dgvClientes.Location = new System.Drawing.Point(11, 266);
+            this.dgvClientes.Location = new System.Drawing.Point(15, 327);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowHeadersWidth = 51;
-            this.dgvClientes.Size = new System.Drawing.Size(619, 234);
+            this.dgvClientes.Size = new System.Drawing.Size(825, 288);
             this.dgvClientes.TabIndex = 0;
             // 
             // Cliente
@@ -160,18 +161,20 @@
             // 
             this.lblBaseDatos.AutoSize = true;
             this.lblBaseDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBaseDatos.Location = new System.Drawing.Point(270, 7);
+            this.lblBaseDatos.Location = new System.Drawing.Point(360, 9);
+            this.lblBaseDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBaseDatos.Name = "lblBaseDatos";
-            this.lblBaseDatos.Size = new System.Drawing.Size(192, 31);
+            this.lblBaseDatos.Size = new System.Drawing.Size(232, 38);
             this.lblBaseDatos.TabIndex = 1;
             this.lblBaseDatos.Text = "Base de Datos";
             // 
             // btnMostrar
             // 
             this.btnMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostrar.Location = new System.Drawing.Point(11, 119);
+            this.btnMostrar.Location = new System.Drawing.Point(15, 146);
+            this.btnMostrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(101, 34);
+            this.btnMostrar.Size = new System.Drawing.Size(135, 42);
             this.btnMostrar.TabIndex = 2;
             this.btnMostrar.Text = "Mostrar";
             this.btnMostrar.UseVisualStyleBackColor = true;
@@ -180,17 +183,19 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(209, 93);
+            this.lblError.Location = new System.Drawing.Point(279, 114);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.Size = new System.Drawing.Size(0, 16);
             this.lblError.TabIndex = 3;
             // 
             // btnLeer
             // 
             this.btnLeer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeer.Location = new System.Drawing.Point(11, 71);
+            this.btnLeer.Location = new System.Drawing.Point(15, 87);
+            this.btnLeer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLeer.Name = "btnLeer";
-            this.btnLeer.Size = new System.Drawing.Size(101, 35);
+            this.btnLeer.Size = new System.Drawing.Size(135, 43);
             this.btnLeer.TabIndex = 4;
             this.btnLeer.Text = "Leer";
             this.btnLeer.UseVisualStyleBackColor = true;
@@ -199,9 +204,10 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(550, 511);
+            this.btnSalir.Location = new System.Drawing.Point(733, 629);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(80, 31);
+            this.btnSalir.Size = new System.Drawing.Size(107, 38);
             this.btnSalir.TabIndex = 5;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -214,11 +220,11 @@
             this.mrcFiltro.Controls.Add(this.cboCiudad);
             this.mrcFiltro.Controls.Add(this.lblCiudad);
             this.mrcFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrcFiltro.Location = new System.Drawing.Point(11, 167);
-            this.mrcFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mrcFiltro.Location = new System.Drawing.Point(15, 206);
+            this.mrcFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mrcFiltro.Name = "mrcFiltro";
-            this.mrcFiltro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.mrcFiltro.Size = new System.Drawing.Size(472, 76);
+            this.mrcFiltro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mrcFiltro.Size = new System.Drawing.Size(629, 94);
             this.mrcFiltro.TabIndex = 6;
             this.mrcFiltro.TabStop = false;
             this.mrcFiltro.Text = "Filtrar por";
@@ -226,10 +232,10 @@
             // cboPais
             // 
             this.cboPais.FormattingEnabled = true;
-            this.cboPais.Location = new System.Drawing.Point(71, 34);
-            this.cboPais.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPais.Location = new System.Drawing.Point(95, 42);
+            this.cboPais.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboPais.Name = "cboPais";
-            this.cboPais.Size = new System.Drawing.Size(127, 23);
+            this.cboPais.Size = new System.Drawing.Size(168, 26);
             this.cboPais.TabIndex = 3;
             this.cboPais.SelectedIndexChanged += new System.EventHandler(this.cboPais_SelectedIndexChanged);
             // 
@@ -237,30 +243,29 @@
             // 
             this.lblPais.AutoSize = true;
             this.lblPais.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPais.Location = new System.Drawing.Point(13, 35);
-            this.lblPais.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPais.Location = new System.Drawing.Point(17, 43);
             this.lblPais.Name = "lblPais";
-            this.lblPais.Size = new System.Drawing.Size(39, 20);
+            this.lblPais.Size = new System.Drawing.Size(50, 25);
             this.lblPais.TabIndex = 2;
             this.lblPais.Text = "Pais";
             // 
             // cboCiudad
             // 
             this.cboCiudad.FormattingEnabled = true;
-            this.cboCiudad.Location = new System.Drawing.Point(307, 34);
-            this.cboCiudad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCiudad.Location = new System.Drawing.Point(409, 42);
+            this.cboCiudad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCiudad.Name = "cboCiudad";
-            this.cboCiudad.Size = new System.Drawing.Size(127, 23);
+            this.cboCiudad.Size = new System.Drawing.Size(168, 26);
             this.cboCiudad.TabIndex = 1;
+            this.cboCiudad.SelectedIndexChanged += new System.EventHandler(this.cboCiudad_SelectedIndexChanged);
             // 
             // lblCiudad
             // 
             this.lblCiudad.AutoSize = true;
             this.lblCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCiudad.Location = new System.Drawing.Point(226, 31);
-            this.lblCiudad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCiudad.Location = new System.Drawing.Point(301, 38);
             this.lblCiudad.Name = "lblCiudad";
-            this.lblCiudad.Size = new System.Drawing.Size(59, 20);
+            this.lblCiudad.Size = new System.Drawing.Size(75, 25);
             this.lblCiudad.TabIndex = 0;
             this.lblCiudad.Text = "Ciudad";
             // 
@@ -271,9 +276,10 @@
             // btnBase
             // 
             this.btnBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBase.Location = new System.Drawing.Point(11, 511);
+            this.btnBase.Location = new System.Drawing.Point(15, 629);
+            this.btnBase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBase.Name = "btnBase";
-            this.btnBase.Size = new System.Drawing.Size(82, 31);
+            this.btnBase.Size = new System.Drawing.Size(109, 38);
             this.btnBase.TabIndex = 7;
             this.btnBase.Text = "Elegir Base";
             this.btnBase.UseVisualStyleBackColor = true;
@@ -282,9 +288,10 @@
             // btnVerTablas
             // 
             this.btnVerTablas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerTablas.Location = new System.Drawing.Point(152, 511);
+            this.btnVerTablas.Location = new System.Drawing.Point(203, 629);
+            this.btnVerTablas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVerTablas.Name = "btnVerTablas";
-            this.btnVerTablas.Size = new System.Drawing.Size(80, 31);
+            this.btnVerTablas.Size = new System.Drawing.Size(107, 38);
             this.btnVerTablas.TabIndex = 8;
             this.btnVerTablas.Text = "Ver tablas";
             this.btnVerTablas.UseVisualStyleBackColor = true;
@@ -292,10 +299,10 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(510, 197);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFiltrar.Location = new System.Drawing.Point(680, 242);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(92, 32);
+            this.btnFiltrar.Size = new System.Drawing.Size(123, 39);
             this.btnFiltrar.TabIndex = 9;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
@@ -303,10 +310,10 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(666, 566);
+            this.ClientSize = new System.Drawing.Size(888, 697);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.btnVerTablas);
             this.Controls.Add(this.btnBase);
@@ -318,6 +325,7 @@
             this.Controls.Add(this.lblBaseDatos);
             this.Controls.Add(this.dgvClientes);
             this.ForeColor = System.Drawing.Color.Navy;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.frmMain_Load);
