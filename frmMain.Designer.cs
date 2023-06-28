@@ -51,9 +51,8 @@
             this.cboCiudad = new System.Windows.Forms.ComboBox();
             this.lblCiudad = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnBase = new System.Windows.Forms.Button();
-            this.btnVerTablas = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnVerTablas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.mrcFiltro.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +73,7 @@
             this.Telefono,
             this.Fax});
             this.dgvClientes.Location = new System.Drawing.Point(15, 327);
-            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowHeadersWidth = 51;
             this.dgvClientes.Size = new System.Drawing.Size(825, 288);
@@ -172,7 +171,7 @@
             // 
             this.btnMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMostrar.Location = new System.Drawing.Point(15, 146);
-            this.btnMostrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMostrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(135, 42);
             this.btnMostrar.TabIndex = 2;
@@ -193,7 +192,7 @@
             // 
             this.btnLeer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLeer.Location = new System.Drawing.Point(15, 87);
-            this.btnLeer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLeer.Margin = new System.Windows.Forms.Padding(4);
             this.btnLeer.Name = "btnLeer";
             this.btnLeer.Size = new System.Drawing.Size(135, 43);
             this.btnLeer.TabIndex = 4;
@@ -205,7 +204,7 @@
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Location = new System.Drawing.Point(733, 629);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(107, 38);
             this.btnSalir.TabIndex = 5;
@@ -273,30 +272,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnBase
-            // 
-            this.btnBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBase.Location = new System.Drawing.Point(15, 629);
-            this.btnBase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBase.Name = "btnBase";
-            this.btnBase.Size = new System.Drawing.Size(109, 38);
-            this.btnBase.TabIndex = 7;
-            this.btnBase.Text = "Elegir Base";
-            this.btnBase.UseVisualStyleBackColor = true;
-            this.btnBase.Click += new System.EventHandler(this.btnBase_Click);
-            // 
-            // btnVerTablas
-            // 
-            this.btnVerTablas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerTablas.Location = new System.Drawing.Point(203, 629);
-            this.btnVerTablas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnVerTablas.Name = "btnVerTablas";
-            this.btnVerTablas.Size = new System.Drawing.Size(107, 38);
-            this.btnVerTablas.TabIndex = 8;
-            this.btnVerTablas.Text = "Ver tablas";
-            this.btnVerTablas.UseVisualStyleBackColor = true;
-            this.btnVerTablas.Click += new System.EventHandler(this.btnVerTablas_Click);
-            // 
             // btnFiltrar
             // 
             this.btnFiltrar.Location = new System.Drawing.Point(680, 242);
@@ -308,6 +283,18 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // btnVerTablas
+            // 
+            this.btnVerTablas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerTablas.Location = new System.Drawing.Point(15, 629);
+            this.btnVerTablas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerTablas.Name = "btnVerTablas";
+            this.btnVerTablas.Size = new System.Drawing.Size(107, 38);
+            this.btnVerTablas.TabIndex = 8;
+            this.btnVerTablas.Text = "Ver tablas";
+            this.btnVerTablas.UseVisualStyleBackColor = true;
+            this.btnVerTablas.Click += new System.EventHandler(this.btnVerTablas_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -316,7 +303,6 @@
             this.ClientSize = new System.Drawing.Size(888, 697);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.btnVerTablas);
-            this.Controls.Add(this.btnBase);
             this.Controls.Add(this.mrcFiltro);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnLeer);
@@ -325,7 +311,7 @@
             this.Controls.Add(this.lblBaseDatos);
             this.Controls.Add(this.dgvClientes);
             this.ForeColor = System.Drawing.Color.Navy;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -362,8 +348,7 @@
         private System.Windows.Forms.ComboBox cboCiudad;
         private System.Windows.Forms.Label lblCiudad;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnBase;
-        private System.Windows.Forms.Button btnVerTablas;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.Button btnVerTablas;
     }
 }

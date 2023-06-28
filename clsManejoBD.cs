@@ -14,13 +14,11 @@ namespace pryRodriguezBDNeptuno
     internal class clsManejoBD
 
     {
-        //OBJETOS para manipular la conexiòn y datos de una BD
-        //zona de declaraciones de objetos y variables
-        OleDbConnection miConexion;
-        OleDbCommand miComando;
+        OleDbConnection miConexion= new OleDbConnection();
+        OleDbCommand miComando= new OleDbCommand();
         OleDbDataReader miLector;
 
-        string ProveedorAccess = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source =";
+        string ProveedorAccess = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source =NEPTUNO.accdb";
    
         public void ConectarBaseDeDatos()
         {
@@ -42,8 +40,6 @@ namespace pryRodriguezBDNeptuno
         {
             try
             {
-                
-
                 miComando.Connection=miConexion;
 
                 miComando.CommandType = System.Data.CommandType.TableDirect;

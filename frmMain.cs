@@ -91,7 +91,7 @@ namespace pryRodriguezBDNeptuno
 
         private void cboCiudad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            objBaseDatos.CargarcboCiudad(cboCiudad, Pais);
+            objBaseDatos.CargarcboCiudad();
         }
     }
 }
